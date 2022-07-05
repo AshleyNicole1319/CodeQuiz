@@ -11,7 +11,7 @@
 
 /*Styles to Header*/
 header {
-    padding: 30px 40px;
+    padding: 20px 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -19,19 +19,24 @@ header {
 }
 
 header a {
-
+    font-size: 20px;
+    color: turquoise;
+    padding: 10px 15px;
+    text-decoration: none;
 }
 
 header nav {
-
+    margin: 10px 5px; /*MAYBE CHANGE THIS*/
 }
 
 header nav ul {
-
+    list-style: none;
 }
 
 header nav ul li {
-
+    color: black;
+    font-size: 20px;
+    padding: 10 15px;
 }
 
 /*Main Content Styles*/
@@ -43,5 +48,10 @@ header nav ul li {
 /*Outro Styles*/
 
 /*Footer Styles*/
+footer {
+    font-size: 45px;
+    margin: 40px auto;
+    text-align: center;
+}
 
 /*Highscores Styles*/
