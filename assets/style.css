@@ -1,0 +1,47 @@
+:root{
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/*Styles to Header*/
+header {
+    padding: 30px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header a {
+
+}
+
+header nav {
+
+}
+
+header nav ul {
+
+}
+
+header nav ul li {
+
+}
+
+/*Main Content Styles*/
+
+/*Intro Styles*/
+
+/*Button Styles*/
+
+/*Outro Styles*/
+
+/*Footer Styles*/
+
+/*Highscores Styles*/
