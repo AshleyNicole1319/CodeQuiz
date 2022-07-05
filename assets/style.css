@@ -1,5 +1,5 @@
 :root{
-
+    --blue: #20b2aa;
 }
 
 * {
@@ -20,9 +20,15 @@ header {
 
 header a {
     font-size: 20px;
-    color: turquoise;
+    color: var(--blue);
     padding: 10px 15px;
     text-decoration: none;
+}
+
+header a:hover {
+    background-color: var(--blue);
+    color: white;
+    border-radius: 15px;
 }
 
 header nav {
@@ -40,12 +46,131 @@ header nav ul li {
 }
 
 /*Main Content Styles*/
+.container {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 35px;
+    text-align: left;
+    margin-bottom: 20px;
+}
 
 /*Intro Styles*/
+.intro p {
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+
+.intro h2 {
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 /*Button Styles*/
+.btn-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: var(--blue);
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    display: inline-block;
+    color: white;
+    font-size: 22px;
+    margin: 5px;
+    padding: 15px 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 75%;
+}
+
+.start-btn {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px 60px;
+    cursor: pointer;
+    background-color: var(--blue);
+    color: white;
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+}
+
+.start-btn:hover {
+    opacity: 75%;
+}
+  
+button[disabled] {
+    cursor: default;
+    background: #c0c7cf;
+}
+
+.container .question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 
 /*Outro Styles*/
+#outro {
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+#outro h2 {
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#outro span#high-score {
+    line-height: 1.5em;
+    padding: 0;
+}
+
+#outro input {
+    border: 1px solid var(--blue);
+    display: inline-block;
+    padding: 6px 15px;
+    font-size: 15px;
+    border-radius: 10px;
+
+}
+
+#outro .submit-btn {
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+    font-size: 15px;
+    margin: 5px;
+    padding: 6px 15px;
+    cursor: pointer;
+}
+
+#outro .submit-btn:hover {
+    opacity: 75%;
+}
 
 /*Footer Styles*/
 footer {
