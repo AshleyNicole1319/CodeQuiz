@@ -60,6 +60,10 @@ h2 {
     margin-bottom: 20px;
 }
 
+.hide {
+    display: none;
+}
+
 /*Intro Styles*/
 .intro p {
     font-size: 20px;

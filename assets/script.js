@@ -9,7 +9,7 @@ var progressText = document.querySelector('#progressText');
 var scoreText = document.querySelector('#score');
 var questionsEl = document.querySelector('#question');
 var startScreen = document.querySelector('.intro');
-var questionScreen = document.querySelector('#question-contianer');
+var questionScreen = document.querySelector('.question-container');
 
 
 var timerEl = document.querySelector("#timer");
