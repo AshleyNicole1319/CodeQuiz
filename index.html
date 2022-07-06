@@ -15,7 +15,7 @@
 
         <nav>
             <ul>
-                <li id="timer" class="hide">Time</li> <!--MIGHT NEED TO REMOVE "TIME"-->
+                <li id="timer">Time: </li>
             </ul>
         </nav>
     </header>
@@ -24,13 +24,13 @@
     <div class="container">
 
         <!--Intro-->
-        <section id="intro" class="intro">
+        <section class="intro">
             <h2>Coding Quiz Challenge</h2>
             <p>Try to answer all the questions within the time limit.</p>
-            <p>Any incorrect answers will deduct your time(score) by 10 seconds!</p>
+            <p>Any incorrect answers will deduct your time(score) by 5 seconds!</p>
         </section>
 
-        <section class="ready-begin">
+        <section>
             <button id="start" class="start-btn">Start Quiz</button>
         </section>
 
@@ -38,7 +38,7 @@
         <section id="question-container" class="hide">
 
             <!--QUESTIONS AND ANSWERS WILL BE ADDED IN JAVASCRIPT-->
-            <h2 id="question"></h2>
+            <h2 id="questions"></h2>
     
             <article id="answer-choices" class="btn-choices">
                 <button id="btna">Answer 1</button>
@@ -59,7 +59,7 @@
             <button type="submit" id="submit-btn" class="submit-btn">Submit</button>
         </section>
 
-    </div>
+    </div> <!--End Main Content/ Container Class-->
 
 
     <!--Footer-->
