@@ -24,8 +24,8 @@
     <div class="container">
 
         <!--Intro-->
-        <section class="intro">
-            <h2>Coding Quiz Challenge</h2>
+        <section id="intro" class="intro">
+            <h1>Coding Quiz Challenge</h2>
             <p>Try to answer all the questions within the time limit.</p>
             <p>Any incorrect answers will deduct your time(score) by 5 seconds!</p>
             <button id="start" class="start-btn">Start Quiz</button>
@@ -35,21 +35,19 @@
         <section class="question-container hide">
 
             <!--QUESTIONS AND ANSWERS WILL BE ADDED IN JAVASCRIPT-->
-            <h2 id="questions"></h2>
+            <h1 id="questions"></h2>
     
             <article id="answer-choices" class="btn-choices">
-                <button id="btna">Answer 1</button>
-                <button id="btnb">Answer 2</button>
-                <button id="btnc">Answer 3</button>
-                <button id="btnd">Answer 4</button>
+                <button id="btn">Answer 1</button>
+                <button id="btn">Answer 2</button>
+                <button id="btn">Answer 3</button>
+                <button id="btn">Answer 4</button>
             </article>
-
-            <p id="response"></p>
         </section>
 
         <!--Outro-->
         <section id="outro" class="hide-outro">
-            <h2>All Finished!</h2>
+            <h1>All Finished!</h2>
             <p>Your final score is: <span id="high-score"></span></p>
             <label for="name">Enter Initials:</label>
             <input type="text" placeholder="Your Initials" id="player-initials" class="name-input" maxlength="3" />

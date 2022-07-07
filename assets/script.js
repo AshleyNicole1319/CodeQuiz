@@ -1,7 +1,10 @@
-var btnAEl = document.querySelector("#btna");
-var btnBEl = document.querySelector("#btnb");
-var btnCEl = document.querySelector("#btnc");
-var btnDEl = document.querySelector("#btnd");
+var displayTime = document.getElementById('timer');
+var questionContainerEl = document.getElementById('question-container');
+var intro = document.getElementById('intro');
+const questionEl = document.getElementById('questions');
+
+
+//old JS
 var responseEl = document.querySelector("#response")
 
 var choices = Array.from(document.querySelectorAll('.choice-text'));
@@ -10,11 +13,10 @@ var scoreText = document.querySelector('#score');
 var questionsEl = document.querySelector('#question');
 var startScreen = document.querySelector('.intro');
 var questionScreen = document.querySelector('.question-container');
-
-
 var timerEl = document.querySelector("#timer");
 var startbtnEl = document.querySelector("#start")
 var restartbtnEl = document.querySelector("#restartbtn")
+
 
 var time = 60;
 var score = time;
@@ -22,34 +24,9 @@ var remainingtime = "";
 
 document.getElementById("start").addEventListener("click", function(){
     startquiz();
-
 });
 
 
-var questions = [
-    {
-        question: 'box-sizing is a property that changes the calculation of which values of the element?',
-        choices: ["width", "height", "margin", "width and height"],
-        correctanswer: 'width and height'
-    },
-    {
-        question: 'What is an example of a pseudo-element?',
-        choices: ["::before", "::after", "::first-letter", "All of the above"],
-        correctanswer: 'All of the above'
-    },
-    {
-        question: 'What property changes stacking order and how elements overlap each other?',
-        choices: ["z-index", "flex", "c-index", "stack"],
-        correctanswer: 'z-index'
-    },
-    {
-        question: 'Where is it best to put the link to a JavaScript page?',
-        choices: ["In your style sheet", "At the end of your HTML body", "In the head of your HTML", "You do not need to link it"],
-        correctanswer: 'At the end of your HTML body'
-    }
-];
-
-var questionIndex = 0;
 function startquiz() {
     startScreen.classList.add("hide");
     questionScreen.classList.remove("hide");
@@ -58,14 +35,6 @@ function startquiz() {
     setQandA();
 };
 
-function setQandA() {
-    var question = questions[questionIndex];
-    questionsEl.textContent = question.question;
-    btnAEl.textContent = questions[questionIndex].choices[0];
-    btnBEl.textContent = questions[questionIndex].choices[1];
-    btnCEl.textContent = questions[questionIndex].choices[2];
-    btnDEl.textContent = questions[questionIndex].choices[3];
-};
 
 function checkanswer(selectedAnswer) {
     var correctanswer = questions[questionIndex].correctanswer;
@@ -99,16 +68,41 @@ var startTime = function() {
 };
 
 
-
-btnAEl.addEventListener("click", function () {
-    checkanswer(btnAEl.textContent);
-});
-btnBEl.addEventListener("click", function () {
-    checkanswer(btnBEl.textContent);
-});
-btnCEl.addEventListener("click", function () {
-    checkanswer(btnCEl.textContent);
-});
-btnDEl.addEventListener("click", function () {
-    checkanswer(btnDEl.textContent);
-});
+var questions = [
+    {
+        question: 'box-sizing is a property that changes the calculation of which values of the element?',
+        answer: [
+            { text: "A. width", correct: false}
+            { text: "B. height", correct: false}
+            { text: "C. margin", correct: false}
+            { text: "D. width and height", correct: true}
+        ],
+    },
+    {
+        question: 'What is an example of a pseudo-element?',
+        answer: [
+        { text: "::before", correct: false},
+        { text: "::after", correct: false},
+        { text: "::first-letter", correct: false},
+        { text: "All of the above", correct: true}
+    ],
+    },
+    {
+        question: 'What property changes stacking order and how elements overlap each other?',
+        answer: [
+            { text: "z-index", correct: true},
+            { text: "flex", correct: false},
+            { text: "c-index", correct: false},
+            { text: "stack", correct: false}
+        ],
+    },
+    {
+        question: 'Where is it best to put the link to a JavaScript page?',
+        answer: [
+            {"In your style sheet", correct: false},
+            {"At the end of your HTML body", correct: true}, 
+            {"In the head of your HTML", correct: false},
+            {"You do not need to link it", correct: flase},
+        ]
+    }
+];
