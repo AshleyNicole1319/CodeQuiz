@@ -1,4 +1,4 @@
-// Set-up variables
+// Set-up Variables
 var displayTime = document.getElementById('timer');
 var questionContainerEl = document.getElementById('question-container');
 var intro = document.getElementById('intro');
@@ -11,6 +11,7 @@ var initials = document.getElementbyId('player-initials');
 var displayAnswer = document.getElementById('answer');
 var submitScoreEl = document.getElementById('submit-btn');
 
+var countDown;
 var time = 60;
 var score = time;
 var questionIndex;
@@ -89,6 +90,7 @@ function displayQuestion(question) {
     }
 };
 
+//Display Answers Right or Wrong
 function answerWrong {
     displayAnswer.classList.remove('hide')
     displayAnswer.textArea = "Incorrect!"
@@ -99,6 +101,16 @@ function answerCorrect{
     displayAnswer.textArea = "Correct!"
 }
 
+
+//End Quiz
+function endQuiz() {
+    clearInterval(countDown);
+    outro.classList.remove('hide');
+    questionContainerEl.ClassList.add('hide');
+    displayTime.textContent = 'Score: ' + time;
+    highScore.innerHTML = time;
+    submitScoreEl.addEventListener('click', saveHighScore);
+}
 
 //* function checkanswer(selectedAnswer) {
    // var correctanswer = questions[questionIndex].correctanswer;
