@@ -14,7 +14,7 @@ var submitScoreEl = document.getElementById('submit-btn');
 var countDown;
 var time = 60;
 var score = time;
-var questionIndex;
+var changeQuestions, questionIndex;
 
 //Start Quiz
 startButton.addEventListener('click', startQuiz);
@@ -39,7 +39,7 @@ function timer() {
             displayTime.innerHTML = 'Time Remaining: ' + time + ' second';
             time--;
         } else {
-            endQuiz(); //Quiz end if time Runs out
+            endQuiz(); //Quiz ends if time Runs out
         }
     });
 };
@@ -91,12 +91,12 @@ function displayQuestion(question) {
 };
 
 //Display Answers Right or Wrong
-function answerWrong {
+function answerWrong() {
     displayAnswer.classList.remove('hide')
     displayAnswer.textArea = "Incorrect!"
 }
 
-function answerCorrect{
+function answerCorrect() {
     displayAnswer.classList.remove('hide')
     displayAnswer.textArea = "Correct!"
 }
