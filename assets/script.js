@@ -7,7 +7,7 @@ var answerChoicesEl = document.getElementById('answer-choices');
 var startButton = document.getElementById('start');
 var outro = document.getElementbyId('outro');
 var highScore = document.getElementById('high-score');
-var initials = document.getElementbyId('player-initials');
+var initialsEl = document.getElementbyId('player-initials');
 var displayAnswer = document.getElementById('answer');
 var submitScoreEl = document.getElementById('submit-btn');
 
@@ -112,27 +112,27 @@ function endQuiz() {
     submitScoreEl.addEventListener('click', saveHighScore);
 }
 
-//* function checkanswer(selectedAnswer) {
-   // var correctanswer = questions[questionIndex].correctanswer;
-    //if(selectedAnswer === correctanswer) {
-    //    alert("Correct");
-    //}
-    //else {
-    //    alert("Incorrect");
-    //   time-=5
-     //   document.getElementById("timer").innerHTML=time;
-    //}
-    //if(questionIndex === questions.length -1) {
-      //  alert("Your Score Is" + time);
-        //endQuiz();
-    //}
-    //else {
-      //  questionIndex++;
-        //setQandA();
-   // }
-//}; 
+//HighScores
+function saveHighScore(event) {
+    event.preventDefault();
+    // set valid input for submitting initials
+    var initials = initialsEl.value;
+    if (initials.length <= 1) {
+        alert("Please enter your initials.");
+        return;
+    }
 
+    var newScore = {
+        name: initials,
+        score: time
+    }
+    highScores.push(newScore);
+    highScores.sort( (a,b) =>  b.newScore - a.newScore);
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+    window.location.href = './highscores.html';
+};
 
+//Questions
 var questions = [
     {
         question: 'box-sizing is a property that changes the calculation of which values of the element?',
