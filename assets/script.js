@@ -137,9 +137,9 @@ var questions = [
     {
         question: 'box-sizing is a property that changes the calculation of which values of the element?',
         answer: [
-            { text: "A. width", correct: false}
-            { text: "B. height", correct: false}
-            { text: "C. margin", correct: false}
+            { text: "A. width", correct: false},
+            { text: "B. height", correct: false},
+            { text: "C. margin", correct: false},
             { text: "D. width and height", correct: true}
         ],
     },
