@@ -164,10 +164,10 @@ var questions = [
     {
         question: 'Where is it best to put the link to a JavaScript page?',
         answer: [
-            {"In your style sheet", correct: false},
-            {"At the end of your HTML body", correct: true}, 
-            {"In the head of your HTML", correct: false},
-            {"You do not need to link it", correct: flase},
+            { text: "In your style sheet", correct: false},
+            { text: "At the end of your HTML body", correct: true}, 
+            { text: "In the head of your HTML", correct: false},
+            { text: "You do not need to link it", correct: false},
         ]
     }
 ];
