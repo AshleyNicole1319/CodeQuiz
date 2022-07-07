@@ -15,4 +15,4 @@ https://ashleynicole1319.github.io/CodeQuiz/
 <img src="./assets/images/screenshot.png"/>
 
 ## Contribution
-uilt by Ashley Warford
+Built by Ashley Warford
