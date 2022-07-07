@@ -7,13 +7,13 @@ var answerChoicesEl = document.getElementById('answer-choices');
 var startButton = document.getElementById('start');
 var outro = document.getElementById('outro');
 var highScore = document.getElementById('high-score');
-var initialsEl = document.getElementbyId('player-initials');
+var initialsEl = document.getElementById('player-initials');
 var displayAnswer = document.getElementById('answer');
 var submitScoreEl = document.getElementById('submit-btn');
 
 var countDown;
 var time = 60;
-var score = time;
+var score = 0;
 var changeQuestions, questionIndex;
 
 //Start Quiz
@@ -22,10 +22,11 @@ startButton.addEventListener('click', startQuiz);
 function startQuiz() {
     startButton.classList.add('hide');
     intro.classList.add('hide');
+    displayTime.classList.remove('hide');
     questionContainerEl.classList.remove('hide');
     questionIndex = 0;
     changeQuestions = questions.sort(() => Math.random());
-    setQuestion();
+    newQuestion();
     timer();
 };
 
@@ -36,12 +37,12 @@ function timer() {
             displayTime.innerHTML = 'Time Remaining: ' + time + ' seconds';
             time--;
         } else if (time === 1) {
-            displayTime.innerHTML = 'Time Remaining: ' + time + ' second';
+            displayTime.innerHTML = 'Time Remaining: ' + time + ' seconds';
             time--;
         } else {
             endQuiz(); //Quiz ends if time Runs out
         }
-    });
+    },1000);
 };
 
 
@@ -49,7 +50,7 @@ function timer() {
 function newQuestion() {
     resetState();
     questionEl.classList.remove('hide');
-    displayQuestion(questionIndex);
+    displayQuestion(changeQuestions[questionIndex]);
 };
 
 function resetState() {
@@ -60,31 +61,35 @@ function resetState() {
 
 function displayQuestion(question) {
     questionEl.innerText = question.question;
-    for (var i = 0; i < question.answer.length; i++) {
-        var answerButton = document.createElement('button');
+    var buttonClicked = false;
+    for (let i = 0; i < question.answer.length; i++) {
+        let answerButton = document.createElement('button');
         answerButton.innerText = question.answer[i].text;
         answerButton.classList.add('btn');
         answerButton.addEventListener('click', function () {
-            
+            if (buttonClicked) {
+                return;
+            }
+            buttonClicked = true;
             var answer = question.answer[i].correct;
             if (answer) {
                 answerCorrect();
+                score++;
             } else {
                 answerWrong();
                 time -= 5;
             }
 
-            if (changeQuestions.length > questionIndex + 1) {
-                questionIndex++;
-                setQuestion();
-            } else {
-                endQuiz(); 
-            }
-
             // 'correct' or 'wrong' disappears after 2 time
             setTimeout(function() {
                 displayAnswer.classList.add('hide');
-            });
+                if (changeQuestions.length > questionIndex + 1) {
+                    questionIndex++;
+                    newQuestion();
+                } else {
+                    endQuiz(); 
+                }
+            }, 1500);
         });
         answerChoicesEl.appendChild(answerButton);
     }
@@ -93,12 +98,12 @@ function displayQuestion(question) {
 //Display Answers Right or Wrong
 function answerWrong() {
     displayAnswer.classList.remove('hide')
-    displayAnswer.textArea = "Incorrect!"
+    displayAnswer.textContent = "Incorrect!"
 }
 
 function answerCorrect() {
     displayAnswer.classList.remove('hide')
-    displayAnswer.textArea = "Correct!"
+    displayAnswer.textContent = "Correct!"
 }
 
 
@@ -106,7 +111,7 @@ function answerCorrect() {
 function endQuiz() {
     clearInterval(countDown);
     outro.classList.remove('hide');
-    questionContainerEl.ClassList.add('hide');
+    questionContainerEl.classList.add('hide');
     displayTime.textContent = 'Score: ' + time;
     highScore.innerHTML = time;
     submitScoreEl.addEventListener('click', saveHighScore);
@@ -121,6 +126,8 @@ function saveHighScore(event) {
         alert("Please enter your initials.");
         return;
     }
+
+    var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
     var newScore = {
         name: initials,

@@ -65,6 +65,10 @@ h1 {
 }
 
 /*Intro Styles*/
+.intro {
+    text-align: center;
+}
+
 .intro p {
     font-size: 20px;
     text-align: center;
@@ -133,6 +137,10 @@ button[disabled] {
     width: 100%;
 }
 
+.clearbtn {
+    width: auto;
+}
+
 /*Outro Styles*/
 #outro {
     font-size: 20px;
@@ -184,3 +192,43 @@ footer {
 }
 
 /*Highscores Styles*/
+.highscores-display ul {
+    margin: 20px auto;
+    width: 50%;
+    list-style: none;
+}
+
+.highscores-display ul li:hover {
+    background-color: #95bfce;
+}
+
+.highscores-display li {
+    font-size: 18px;
+    line-height: 2em;
+    background-color: #efefef;
+    padding: 10px;
+    list-style: decimal inside none;
+}
+
+.highscores-display li:nth-child(odd) {
+    background-color: #bad0d8;
+  }
+
+.highscores-display .btn {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 30px;
+    background-color: #568ea3;
+    border: none;
+    border-radius: 10px;
+    width: 30%;
+    display: inline-block;
+    color: var(--white);
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.highscores-display .btn:hover {
+    background-color: #95bfce;
+}
